@@ -1,0 +1,19 @@
+{
+  "name": "@types/pusher__chatkit-client",
+  "version": "1.5.0",
+  "description": "Types for @pusher/chatkit-client by Pusher.",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex-231/types_pusher__chatkit-client.git"
+  },
+  "keywords": [
+    "TypeScript"
+  ],
+  "author": "Alex-231",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alex-231/types_pusher__chatkit-client/issues"
+  },
+  "homepage": "https://github.com/Alex-231/types_pusher__chatkit-client#readme"
+}
