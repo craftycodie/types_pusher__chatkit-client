@@ -11,11 +11,11 @@ export interface CurrentUser {
     }) => void;
 }
 
-export type ChatManager = {
+export interface ChatManager {
     constructor(options: { instanceLocator: string, userId: string, tokenProvider: TokenProvider }): void,
     connect: () => Promise<CurrentUser>,
 }
 
-export type TokenProvider = {
+export interface TokenProvider {
     constructor(options: { url: string }): void,
 }
