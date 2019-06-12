@@ -5,6 +5,11 @@
 
 
 declare module "@pusher/chatkit-client" {
+
+    // Untyped aliases.
+    type Logger = any; // part of @pusher/platform.
+    type Instance = any; // part of @pusher/platform.
+
     class CurrentUser {
       sendMessage: (message: { text: string, roomId: string }) => Promise<void>;
       subscribeToRoom: (options: {
@@ -12,6 +17,10 @@ declare module "@pusher/chatkit-client" {
           onMessage: (data: { id: string, senderId: string, text: string, createdAt: string }) => any
         }
       }) => void;
+
+      rooms: Room[];
+      users: User[];
+      currentSubscriptions: any; // Type needs defining.
     }
   
     class ChatManager {
@@ -23,5 +32,60 @@ declare module "@pusher/chatkit-client" {
     class TokenProvider {
       constructor(options: { url: string });
     }
-  }
+
+    interface Room {
+        id: string;
+        isPrivate: boolean;
+        name: string;
+        users?: User[];
+        unreadCount?: number;
+        lastMessageAt?: string;
+        customData: object; // Not fully mapped.
+
+        // Undocumented - use with caution.
+        createdByUserId?: string;
+        deletedAt?: string;
+        updatedAt?: string;
+        userIds?: string[];
+        userStore?: UserStore;
+        isSubscribedTo?: (roomId: string) => boolean;
+        logger?: Logger; // part of @pusher/platform.
+    }
+
+    class UserStore {
+        constructor(options: {instance: Instance, presenceStore: PresenceStore, logger: Logger})
+        instance: Instance;
+        presenceStore: PresenceStore;
+        logger?: Logger; 
+        reqs?: { [userId: string]: any }; // Not fully typed.
+        onSetHooks?: ((userId: string) => any)[];
+    }
+
+    interface BasicUser {
+        avatarURL: string;
+        createdAt?: string;
+        customData?: object;
+        id: string;
+        name: string;
+        updatedAt?: string;
+    }
+
+    interface User extends BasicUser {}
+    class User { // Not fully typed.
+        constructor(basicUser: BasicUser, presenceStore: PresenceStore);
+        presence: { state: Presence };
+        // Undocumented - use with caution.
+        presenceStore?: PresenceStore;
+    }
+
+    enum Presence {
+        unknown,
+        online,
+        offline,
+    }
+
+    interface PresenceStore {
+        [userId: string]: Presence;
+    }
+}
   
