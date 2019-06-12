@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Alex-231/types_pusher__chatkit-client/issues"
   },
-  "homepage": "https://github.com/Alex-231/types_pusher__chatkit-client#readme"
+  "homepage": "https://github.com/Alex-231/types_pusher__chatkit-client#readme",
+  "dependencies": {
+    "@pusher/platform": "^0.16.2"
+  }
 }

@@ -3,12 +3,9 @@
 // Definitions by: Alex Newark <https://github.com/Alex-231>
 // Definitions: https://github.com/Alex-231/types_pusher__chatkit-client
 
+import { Instance, Logger } from '@pusher/platform'
 
 declare module "@pusher/chatkit-client" {
-
-    // Untyped aliases.
-    type Logger = any; // part of @pusher/platform.
-    type Instance = any; // part of @pusher/platform.
 
     class CurrentUser {
       sendMessage: (message: { text: string, roomId: string }) => Promise<void>;
