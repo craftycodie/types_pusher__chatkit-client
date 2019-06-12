@@ -18,6 +18,11 @@ declare module "@pusher/chatkit-client" {
       rooms: Room[];
       users: User[];
       currentSubscriptions: any; // Type needs defining.
+      roomSubscriptions: { [roomId: string]: RoomSubscription }
+    }
+
+    class RoomSubscription {
+        cancel: () => void;
     }
   
     class ChatManager {
