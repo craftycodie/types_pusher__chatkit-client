@@ -24,6 +24,7 @@ declare module "@pusher/chatkit-client" {
       constructor(options: { instanceLocator: string, userId: string, tokenProvider: TokenProvider });
   
       connect: () => Promise<CurrentUser>;
+      disconnect: () => void;
     }
   
     class TokenProvider {
