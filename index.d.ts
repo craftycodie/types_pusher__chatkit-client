@@ -3,7 +3,7 @@
 // Definitions by: Alex Newark <https://github.com/Alex-231>
 // Definitions: https://github.com/Alex-231/types_pusher__chatkit-client
 
-import { Instance, Logger, BaseClient, TokenProvider as PusherTokenProvider } from '@pusher/platform'
+import { Instance, Logger, BaseClient, TokenProvider as PlatformTokenProvider } from '@pusher/platform'
 
 declare module "@pusher/chatkit-client" {
 
