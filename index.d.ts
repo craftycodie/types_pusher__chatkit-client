@@ -503,8 +503,9 @@ declare module "@pusher/chatkit-client" {
         deletedAt: string;
         unreadCount: number;
         lastMessageAt: string;
-        }
-        class Room {
+    }
+    
+    class Room {
         createdAt: string;
         createdByUserId: string;
         id: string;
