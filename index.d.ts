@@ -143,7 +143,7 @@ declare module "@pusher/chatkit-client" {
         }): Promise<void>;
         readCursor({ roomId, userId }: {
             roomId: string;
-            userId: string;
+            userId?: string;
         }): Cursor;
         isTypingIn({ roomId }: {
             roomId: string;
