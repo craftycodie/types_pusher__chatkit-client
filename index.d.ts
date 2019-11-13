@@ -221,10 +221,14 @@ declare module "@pusher/chatkit-client" {
         subscribeToRoomMultipart(options: {
             roomId: string;
             hooks?: {
-                onMessage?: (data: Message) => any;
-                onNewReadCursor?: (cursor: Cursor) => void;
+                onMessage?: (data: Message) => void;
+                onMessageDeleted?: (messageId: number) => void;
+                onUserStartedTyping: (user: User) => void;
+                onUserStoppedTyping: (user: User) => void;
                 onUserJoined?: (user: User) => void;
                 onUserLeft?: (user: User) => void;
+                onPresenceChanged: (state: { current: Presence, previous: Presence }, user: User) => void;
+                onNewReadCursor?: (cursor: Cursor) => void;
             };
             messageLimit?: number;
         }): Promise<Room>;
